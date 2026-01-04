@@ -10,7 +10,7 @@ RowLayout {
         font.pixelSize: 14
         font.bold: true
         font.family: "Iosevka NF"
-        color: Color.Matugen.colors.on_background
+        color: Color.Matugen.colors.primary
         // ambil data dari singleton
         text: ClockProcess.time
     }
@@ -19,7 +19,7 @@ RowLayout {
         font.pixelSize: 14
         font.bold: true
         font.family: "Iosevka NF"
-        color: Color.Matugen.colors.outline
+        color: Color.Matugen.colors.tertiary
         // ambil data dari singleton
         text: ClockProcess.date
     }
