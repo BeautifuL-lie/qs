@@ -59,7 +59,7 @@ Singleton {
     // ========= Polling =========
     Timer {
         interval: 100
-        running: true
+        running: false
         repeat: true
         onTriggered: {
             wsProc.running = true;
