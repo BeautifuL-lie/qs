@@ -164,7 +164,18 @@ Item {
                         Text {
                             Layout.fillWidth: true
                             visible: !BatteryProcess.isCharging && BatteryProcess.timeToEmpty > 0
-                            text: "Time left: " + Math.round(BatteryProcess.timeToEmpty / 60) + " min"
+                            text: {
+                                let totalMinutes = Math.round(BatteryProcess.timeToEmpty / 60);
+                                let h = Math.floor(totalMinutes / 60);
+                                let m = totalMinutes % 60;
+                                if (h > 0 && m > 0)
+                                    return "Empty In: " + h + "h " + m + "m";
+
+                                if (h > 0)
+                                    return "Empty In: " + h + "h";
+
+                                return "Empty In: " + m + "m";
+                            }
                             color: Color.Matugen.colors.on_background
                             opacity: 0.7
                             font.pixelSize: 11
@@ -173,7 +184,18 @@ Item {
                         Text {
                             Layout.fillWidth: true
                             visible: BatteryProcess.isCharging && BatteryProcess.timeToFull > 0
-                            text: "Full in: " + Math.round(BatteryProcess.timeToFull / 60) + " min"
+                            text: {
+                                let totalMinutes = Math.round(BatteryProcess.timeToFull / 60);
+                                let h = Math.floor(totalMinutes / 60);
+                                let m = totalMinutes % 60;
+                                if (h > 0 && m > 0)
+                                    return "Full in: " + h + "h " + m + "m";
+
+                                if (h > 0)
+                                    return "Full in: " + h + "h";
+
+                                return "Full in: " + m + "m";
+                            }
                             color: Color.Matugen.colors.on_background
                             opacity: 0.7
                             font.pixelSize: 11
