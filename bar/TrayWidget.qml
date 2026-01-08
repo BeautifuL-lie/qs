@@ -4,7 +4,7 @@ import QtQuick
 
 Item {
 
-    anchors.centerIn: parent
+    //anchors.centerIn: parent
     id: root
 
     readonly property Repeater items: items

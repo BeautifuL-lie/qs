@@ -26,68 +26,40 @@ PanelWindow {
         opacity: 0.8
     }
 
-    Item {
-        anchors.fill: parent
+    RowLayout {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.leftMargin: 10
+        anchors.left: parent.left
+        layoutDirection: Qt.LeftToRight
 
-        RowLayout {
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.leftMargin: 10
-
-            Loader {
-                active: true
-
-                sourceComponent: WorkspaceWidget {
-                }
-
-            }
-
+        WorkspaceWidget {
         }
 
-        RowLayout {
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.rightMargin: 10
-            spacing: 10
+    }
 
-            Loader {
-                active: true
+    RowLayout {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
 
-                sourceComponent: TrayWidget {
-                }
-
-            }
-
-            Loader {
-                active: true
-
-                sourceComponent: BatteryWidget {
-                }
-
-            }
-
-            Loader {
-                active: true
-
-                sourceComponent: SettingsWidget {
-                }
-
-            }
-
+        ClockWidget {
         }
 
-        Item {
-            anchors.fill: parent
+    }
 
-            Loader {
-                anchors.centerIn: parent
-                active: true
+    RowLayout {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.rightMargin: 10
+        anchors.right: parent.right
+        layoutDirection: Qt.RightToLeft
+        spacing: 10
 
-                sourceComponent: ClockWidget {
-                }
+        SettingsWidget {
+        }
 
-            }
+        BatteryWidget {
+        }
 
+        TrayWidget {
         }
 
     }
