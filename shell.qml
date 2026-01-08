@@ -1,13 +1,18 @@
+import QtQuick
 import Quickshell
 import qs.bar
 
 ShellRoot {
-    LazyLoader {
-        active: true
+    Bar {
+        Component.onCompleted: console.log("Bar Loaded")
+    }
 
-        component: Bar {
+    Connections {
+        function onReloadCompleted() {
+            Quickshell.inhibitReloadPopup();
         }
 
+        target: Quickshell
     }
 
 }
