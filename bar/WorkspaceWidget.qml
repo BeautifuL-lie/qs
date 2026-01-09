@@ -3,6 +3,8 @@ import Quickshell
 import qs.color as Color
 
 Row {
+    //anchors.verticalCenter: parent.verticalCenter
+
     function isWorkspaceEmpty(workspaceId: int) : bool {
         for (let i = 0; i < NiriService.instance.windows.count; i++) {
             let item = NiriService.instance.windows.data(NiriService.instance.windows.index(i, 0), Qt.UserRole + 5);
@@ -22,7 +24,6 @@ Row {
     }
 
     spacing: 2
-    anchors.verticalCenter: parent.verticalCenter
 
     Repeater {
         model: NiriService.instance.workspaces
