@@ -23,26 +23,34 @@ Item {
             border.width: 1.3
             radius: 3
 
-            // Battery fill
             Rectangle {
-                anchors.left: parent.left
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.margins: 2
-                width: Math.max(0, (parent.width - 4) * (percentage / 100))
-                color: {
-                    if (BatteryProcess.isCharging)
-                        return "#15be17";
+                anchors.fill: parent
+                color: Color.Matugen.colors.surface_container_highest
+                anchors.margins: 1.2
+                radius: 3
 
-                    if (percentage <= 20)
-                        return "#d00000";
+                // Battery fill
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    //anchors.margins: 2
+                    width: Math.max(0, (parent.width - 4) * (percentage / 100))
+                    color: {
+                        if (BatteryProcess.isCharging)
+                            return "#15be17";
 
-                    if (percentage <= 30)
-                        return "#ffb000";
+                        if (percentage <= 20)
+                            return "#d00000";
 
-                    return "#15be17"; //surface bright
+                        if (percentage <= 30)
+                            return "#ffb000";
+
+                        return "#15ae17"; //surface bright
+                    }
+                    radius: 2
                 }
-                radius: 2
+
             }
 
             // Battery tip (the little nub on the right)
