@@ -16,8 +16,8 @@ Item {
         Rectangle {
             id: batOutline
 
-            width: 35
-            height: 17
+            width: 30
+            height: 15
             color: "transparent"
             border.color: Color.Matugen.colors.on_background // outline
             border.width: 1.3
@@ -34,7 +34,7 @@ Item {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    //anchors.margins: 2
+                    anchors.margins: 1
                     width: Math.max(0, parent.width * (percentage / 100))
                     color: {
                         if (BatteryProcess.isCharging)
@@ -46,7 +46,7 @@ Item {
                         if (percentage <= 30)
                             return "#ffb000";
 
-                        return "#15ae17"; //surface bright
+                        return Color.Matugen.colors.outline; //surface bright
                     }
                     radius: 2
                 }
@@ -65,7 +65,7 @@ Item {
 
             // Percentage text
             Text {
-                text: BatteryProcess.isCharging ? "󱐋 " + percentage + "%" : percentage + "%"
+                text: BatteryProcess.isCharging ? "󱐋 " + percentage : percentage
                 color: Color.Matugen.colors.on_background
                 font.pixelSize: 9
                 font.bold: true
