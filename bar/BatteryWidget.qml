@@ -16,8 +16,8 @@ Item {
         Rectangle {
             id: batOutline
 
-            width: 43.5
-            height: 18
+            width: 35
+            height: 17
             color: "transparent"
             border.color: Color.Matugen.colors.on_background // outline
             border.width: 1.3
@@ -67,7 +67,7 @@ Item {
             Text {
                 text: BatteryProcess.isCharging ? "󱐋 " + percentage + "%" : percentage + "%"
                 color: Color.Matugen.colors.on_background
-                font.pixelSize: 10
+                font.pixelSize: 9
                 font.bold: true
                 anchors.centerIn: parent
             }
