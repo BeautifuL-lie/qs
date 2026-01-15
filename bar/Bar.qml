@@ -7,7 +7,7 @@ import qs.color as Color
 PanelWindow {
     id: bar
 
-    property string opacity: "e6"
+    property string opacity: "F7"
 
     implicitHeight: 32
     color: "#" + opacity + Color.Matugen.colors.background.slice(1)

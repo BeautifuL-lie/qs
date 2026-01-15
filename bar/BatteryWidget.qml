@@ -104,7 +104,7 @@ Item {
                 anchors.fill: parent
                 radius: 10
                 color: Color.Matugen.colors.background
-                opacity: 0.9
+                opacity: 0.97
                 border.color: Color.Matugen.colors.outline
                 border.width: 1
 
