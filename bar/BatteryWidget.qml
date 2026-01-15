@@ -65,7 +65,7 @@ Item {
 
             // Percentage text
             Text {
-                text: BatteryProcess.isCharging ? "󱐋 " + percentage : percentage
+                text: BatteryProcess.isCharging ? "󱐋" + percentage : percentage
                 color: Color.Matugen.colors.on_background
                 font.pixelSize: 9
                 font.bold: true
