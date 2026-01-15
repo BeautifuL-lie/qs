@@ -35,7 +35,7 @@ Item {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     anchors.margins: 1
-                    width: Math.max(0, parent.width * (percentage / 100))
+                    width: Math.max(0, (parent.width - 2) * (percentage / 100))
                     color: {
                         if (BatteryProcess.isCharging)
                             return "#15ae17";
@@ -65,7 +65,7 @@ Item {
 
             // Percentage text
             Text {
-                text: BatteryProcess.isCharging ? "󱐋" + percentage : percentage
+                text: BatteryProcess.isCharging ? " " + percentage : percentage
                 color: Color.Matugen.colors.on_background
                 font.pixelSize: 9
                 font.bold: true
