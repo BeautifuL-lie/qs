@@ -4,7 +4,7 @@ import QtQuick.Layouts
 import qs.color as Color
 
 RowLayout {
-    spacing: 13
+    spacing: 10
 
     Text {
         font.pixelSize: 14
