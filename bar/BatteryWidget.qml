@@ -16,7 +16,7 @@ Item {
         Rectangle {
             id: batOutline
 
-            width: 45
+            width: 43.5
             height: 18
             color: "transparent"
             border.color: Color.Matugen.colors.on_background // outline
