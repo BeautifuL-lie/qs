@@ -57,8 +57,8 @@ Item {
             Rectangle {
                 anchors.left: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                width: 2.3
-                height: 10
+                width: 2
+                height: 9
                 color: batOutline.border.color
                 radius: 1
             }
