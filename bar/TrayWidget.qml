@@ -18,7 +18,7 @@ Item {
     Row {
         id: layout
 
-        spacing: 6
+        spacing: 10
 
         Repeater {
             id: items

@@ -11,6 +11,7 @@ Item {
 
     implicitHeight: batOutline.height
     implicitWidth: batOutline.width
+    Layout.rightMargin: 2
 
     RowLayout {
         Rectangle {
