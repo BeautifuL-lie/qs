@@ -47,7 +47,7 @@ Item {
                         if (percentage <= 30)
                             return "#ffb000";
 
-                        return Color.Matugen.colors.outline; //surface bright
+                        return Color.Matugen.colors.outline_variant; //surface bright
                     }
                     radius: 2
                 }
