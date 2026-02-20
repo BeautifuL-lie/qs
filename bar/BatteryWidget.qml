@@ -15,6 +15,15 @@ Item {
 
     RowLayout {
         Rectangle {
+            // Percentage text
+            //Text {
+            //  text: BatteryProcess.isCharging ? " " + percentage : percentage
+            //color: Color.Matugen.colors.on_background
+            //font.pixelSize: 9
+            //font.bold: true
+            //anchors.centerIn: parent
+            //}
+
             id: batOutline
 
             width: 30
@@ -64,13 +73,28 @@ Item {
                 radius: 1
             }
 
-            // Percentage text
-            Text {
-                text: BatteryProcess.isCharging ? " " + percentage : percentage
-                color: Color.Matugen.colors.on_background
-                font.pixelSize: 9
-                font.bold: true
+            Row {
+                id: contentRow
+
                 anchors.centerIn: parent
+                spacing: 1
+
+                Text {
+                    id: chargeIcon
+
+                    text: ""
+                    visible: BatteryProcess.isCharging
+                    color: Color.Matugen.colors.on_background
+                    font.pixelSize: 9
+                }
+
+                Text {
+                    text: percentage
+                    color: Color.Matugen.colors.on_background
+                    font.pixelSize: 9
+                    font.bold: true
+                }
+
             }
 
             MouseArea {
