@@ -8,7 +8,6 @@ RowLayout {
 
     Text {
         font.pixelSize: 14
-        font.bold: true
         font.family: "JetBrains Mono"
         color: Color.Matugen.colors.primary
         // ambil data dari singleton
