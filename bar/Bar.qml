@@ -12,6 +12,10 @@ PanelWindow {
     implicitHeight: 32
     color: "#" + opacity + Color.Matugen.colors.background.slice(1)
 
+    WlrLayershell.layer: WlrLayer.top
+    WlrLayershell.namespace: "bar"
+    WlrLayershell.exclusiveZone: 32
+
     anchors {
         top: true
         left: true
