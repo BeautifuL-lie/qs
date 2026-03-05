@@ -130,7 +130,7 @@ Item {
                 radius: 10
                 color: Color.Matugen.colors.background
                 opacity: 0.97
-                border.color: Color.Matugen.colors.outline
+                border.color: Color.Matugen.colors.outline_variant
                 border.width: 1
 
                 RowLayout {
