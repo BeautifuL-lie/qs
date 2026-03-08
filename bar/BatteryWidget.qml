@@ -128,7 +128,7 @@ Item {
             Rectangle {
                 anchors.fill: parent
                 radius: 10
-                color: Color.Matugen.colors.background
+                color: Color.Matugen.colors.surface_container
                 opacity: 0.97
                 border.color: Color.Matugen.colors.outline_variant
                 border.width: 1
