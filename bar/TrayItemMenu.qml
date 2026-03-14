@@ -36,10 +36,10 @@ ListView {
     required property QsMenuEntry modelData
 
     color: (modelData?.isSeparator) ? Color.Matugen.colors.surface_container_highest : rectColor
-    height: (modelData?.isSeparator) ? 2 : 28
+    height: (modelData?.isSeparator) ? 2 : 25
     anchors.horizontalCenter: parent.horizontalCenter
-    width: (modelData?.isSeparator) ? 300 : 316
-    radius: 8
+    width: (modelData?.isSeparator) ? 300 : 308
+    radius: 0
 
     HoverHandler {
       id:mouse

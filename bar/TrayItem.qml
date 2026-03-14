@@ -36,7 +36,7 @@ Item {
             radius: 8
 
             border {
-                color: Color.Matugen.colors.outline
+                color: Color.Matugen.colors.outline_variant
                 width: 2
             }
 
