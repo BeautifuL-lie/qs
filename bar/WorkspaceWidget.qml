@@ -64,7 +64,8 @@ Row {
                 text: model.index
                 color: rect.updateTextColor()
                 font.weight: 500
-                font.pointSize: 10
+                font.pixelSize: 12
+                font.family: "JetBrains Mono"
             }
 
             MouseArea {

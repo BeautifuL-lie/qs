@@ -7,7 +7,7 @@ RowLayout {
     spacing: 10
 
     Text {
-        font.pixelSize: 14
+        font.pixelSize: 13
         font.family: "JetBrains Mono"
         color: Color.Matugen.colors.primary
         // ambil data dari singleton
@@ -15,7 +15,7 @@ RowLayout {
     }
 
     Text {
-        font.pixelSize: 14
+        font.pixelSize: 13
         font.family: "JetBrains Mono"
         color: Color.Matugen.colors.tertiary
         // ambil data dari singleton
