@@ -27,10 +27,10 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         visible: player !== null && songTitle !== "" && songArtist !== ""
         text: "󰎇 " + songArtist + " - " + songTitle
-        font.pixelSize: 12
+        font.pixelSize: 10
         font.family: "JetBrainsMono Nerd Font Propo"
         elide: Text.ElideRight
-        color: Color.Matugen.colors.on_background
+        color: Color.Matugen.colors.secondary
 
         MouseArea {
           anchors.fill: parent
