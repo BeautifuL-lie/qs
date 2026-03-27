@@ -39,7 +39,7 @@ Row {
                     return "transparent";
                 }
                 rect.gradient = null;
-                return isWorkspaceEmpty(model.id) ? Color.Matugen.colors.surface_container_highest : Color.Matugen.colors.surface;
+                return isWorkspaceEmpty(model.id) ? Color.Matugen.colors.surface_container : Color.Matugen.colors.surface_container_highest;
             }
 
             function updateBorderColor() {
