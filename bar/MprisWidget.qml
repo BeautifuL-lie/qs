@@ -32,11 +32,6 @@ Item {
         elide: Text.ElideRight
         color: Color.Matugen.colors.secondary
 
-        MouseArea {
-          anchors.fill: parent
-          onClicked: player.togglePlaying()
-        }
-
     }
 
 
