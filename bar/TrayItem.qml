@@ -17,7 +17,7 @@ Item {
     Popup {
         id: trayMenuPopup
 
-        y: root.y + root.height + 8
+        y: root.y + root.height + 18
         contentWidth: 304
         contentHeight: idMenu.contentHeight - 8
         modal: true
