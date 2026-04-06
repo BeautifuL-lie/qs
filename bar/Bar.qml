@@ -7,10 +7,8 @@ import qs.color as Color
 PanelWindow {
     id: bar
 
-    property string opacity: "F7"
-
     implicitHeight: 32
-    color: "#" + opacity + Color.Matugen.colors.background.slice(1)
+    color: Qt.alpha(Color.Matugen.colors.background, 0.98)
     WlrLayershell.layer: WlrLayer.top
     WlrLayershell.namespace: "bar"
     WlrLayershell.exclusiveZone: 32
