@@ -48,7 +48,7 @@ Item {
                     width: Math.max(0, (parent.width - 2) * (percentage / 100))
                     color: {
                         if (BatteryProcess.isCharging)
-                            return "#15ae17";
+                            return "#0fa866";
 
                         if (percentage <= 20)
                             return "#d00000";
