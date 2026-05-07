@@ -1,4 +1,3 @@
-// ClockWidget.qml
 import QtQuick
 import QtQuick.Layouts
 import qs.color as Color
@@ -9,16 +8,15 @@ RowLayout {
     Text {
         font.pixelSize: 12
         font.family: "JetBrains Mono"
-        color: Color.Matugen.colors.primary
-        // ambil data dari singleton
+        font.bold: true
+        color: Color.Matugen.colors.on_surface
         text: ClockProcess.time
     }
 
     Text {
         font.pixelSize: 12
         font.family: "JetBrains Mono"
-        color: Color.Matugen.colors.tertiary
-        // ambil data dari singleton
+        color: Color.Matugen.colors.on_surface_variant
         text: ClockProcess.date
     }
 
