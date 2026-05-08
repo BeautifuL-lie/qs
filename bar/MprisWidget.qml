@@ -30,7 +30,7 @@ Item {
         font.pixelSize: 10
         font.family: "JetBrainsMono Nerd Font Propo"
         elide: Text.ElideRight
-        color: Color.Matugen.colors.secondary
+        color: Color.Matugen.colors.on_background
 
     }
 
