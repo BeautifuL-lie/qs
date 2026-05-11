@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -9,7 +11,7 @@ PanelWindow {
 
     implicitHeight: 32
     color: Qt.alpha(Color.Matugen.colors.background, 0.9)
-    WlrLayershell.layer: WlrLayer.top
+    WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.namespace: "bar"
     WlrLayershell.exclusiveZone: 32
 
