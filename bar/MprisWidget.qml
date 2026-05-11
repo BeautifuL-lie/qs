@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -12,8 +14,8 @@ Item {
         else
             return null;
     }
-    readonly property string songTitle: player?.trackTitle
-    readonly property string songArtist: player?.trackArtist
+    readonly property string songTitle: player?.trackTitle || ""
+    readonly property string songArtist: player?.trackArtist || ""
 
     width: 250
     height: 32
