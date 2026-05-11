@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import Quickshell
 import qs.color as Color
@@ -30,6 +32,9 @@ Row {
 
         delegate: Rectangle {
             id: rect
+
+            required property var model
+            required property int index
 
             property Text workspaceText: textItem
 
