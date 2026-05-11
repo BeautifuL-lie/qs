@@ -54,7 +54,7 @@ Row {
             border.color: updateBorderColor()
             border.width: 2
             height: 20
-            radius: 4
+            radius: 8
             width: model.isFocused ? 52 : 24
 
             Text {
