@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -9,67 +11,53 @@ Item {
     property string percentage: Math.round(BatteryProcess.percentage * 100)
     property bool showPopup: false
 
-    implicitHeight: batOutline.height
-    implicitWidth: batOutline.width
+    implicitHeight: batteryBody.height
+    implicitWidth: batteryBody.width + batteryTip.width
     Layout.rightMargin: 2
 
     RowLayout {
         Rectangle {
-            // Percentage text
-            //Text {
-            //  text: BatteryProcess.isCharging ? " " + percentage : percentage
-            //color: Color.Matugen.colors.on_background
-            //font.pixelSize: 9
-            //font.bold: true
-            //anchors.centerIn: parent
-            //}
-
-            id: batOutline
+            id: batteryBody
 
             width: 30
             height: 15
-            color: "transparent"
-            border.color: Color.Matugen.colors.on_background // outline
-            border.width: 1.3
+            color: Color.Matugen.colors.outline
             radius: 3
 
+            // Battery fill
             Rectangle {
-                anchors.fill: parent
-                color: Color.Matugen.colors.surface_container_highest
-                anchors.margins: 1.2
-                radius: 3
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
 
-                // Battery fill
-                Rectangle {
-                    anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.margins: 1
-                    width: Math.max(0, (parent.width - 2) * (percentage / 100))
-                    color: {
-                        if (BatteryProcess.isCharging)
-                            return "#0fa866";
+                width: Math.max(0, (parent.width - 2.4) * (percentage / 100))
 
-                        if (percentage <= 20)
-                            return "#d00000";
+                color: {
+                    if (BatteryProcess.isCharging)
+                        return "#0fa866";
 
-                        if (percentage <= 30)
-                            return "#ffb000";
+                    if (percentage <= 20)
+                        return "#d00000";
 
-                        return Color.Matugen.colors.outline_variant; //surface bright
-                    }
-                    radius: 2
+                    if (percentage <= 30)
+                        return "#ffb000";
+
+                    return Color.Matugen.colors.on_background;
                 }
 
+                radius: 3
             }
 
-            // Battery tip (the little nub on the right)
+            // Battery tip
             Rectangle {
+                id: batteryTip
+
                 anchors.left: parent.right
                 anchors.verticalCenter: parent.verticalCenter
+
                 width: 2
                 height: 9
-                color: batOutline.border.color
+                color: Color.Matugen.colors.outline
                 radius: 1
             }
 
@@ -84,45 +72,45 @@ Item {
 
                     text: ""
                     visible: BatteryProcess.isCharging
-                    color: Color.Matugen.colors.on_background
+                    color: Color.Matugen.colors.surface_container_highest
                     font.pixelSize: 9
                 }
 
                 Text {
                     text: percentage
-                    color: Color.Matugen.colors.on_background
-                    font.pixelSize: 9
+                    color: Color.Matugen.colors.surface_container_highest
+                    font.pixelSize: 10
                     font.bold: true
+                    font.family: "JetBrainsMono Nerd Font"
                 }
-
             }
 
             MouseArea {
                 anchors.fill: parent
+
                 onClicked: {
                     battery.showPopup = !battery.showPopup;
                     SettingsProcess.closeSwaync.running = true;
                 }
             }
-
         }
-
     }
 
     LazyLoader {
         active: battery.showPopup
 
         PanelWindow {
-            //mask: Region {
-            //}
-
             anchors.top: true
             anchors.right: true
+
             margins.top: screen.height / 150
             margins.right: screen.width / 175
+
             exclusiveZone: 0
+
             implicitWidth: 225
             implicitHeight: 110
+
             color: "transparent"
 
             Rectangle {
@@ -149,25 +137,38 @@ Item {
                             property color ringColor: Color.Matugen.colors.primary
 
                             anchors.fill: parent
+
                             onPaint: {
                                 var ctx = getContext("2d");
+
                                 ctx.clearRect(0, 0, width, height);
+
                                 var cx = width / 2;
                                 var cy = height / 2;
                                 var r = (width / 2) - lineWidth;
+
                                 // background ring
                                 ctx.beginPath();
                                 ctx.arc(cx, cy, r, 0, Math.PI * 2);
                                 ctx.strokeStyle = Color.Matugen.colors.surface_variant;
                                 ctx.lineWidth = lineWidth;
                                 ctx.stroke();
+
                                 // progress ring
                                 ctx.beginPath();
-                                ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * value));
+                                ctx.arc(
+                                    cx,
+                                    cy,
+                                    r,
+                                    -Math.PI / 2,
+                                    -Math.PI / 2 + (Math.PI * 2 * value)
+                                );
+
                                 ctx.strokeStyle = ringColor;
                                 ctx.lineWidth = lineWidth;
                                 ctx.stroke();
                             }
+
                             onValueChanged: requestPaint()
                         }
 
@@ -179,7 +180,6 @@ Item {
                             font.bold: true
                             horizontalAlignment: Text.AlignHCenter
                         }
-
                     }
 
                     ColumnLayout {
@@ -197,10 +197,12 @@ Item {
                         Text {
                             Layout.fillWidth: true
                             visible: !BatteryProcess.isCharging && BatteryProcess.timeToEmpty > 0
+
                             text: {
                                 let totalMinutes = Math.round(BatteryProcess.timeToEmpty / 60);
                                 let h = Math.floor(totalMinutes / 60);
                                 let m = totalMinutes % 60;
+
                                 if (h > 0 && m > 0)
                                     return "Empty In: " + h + "h " + m + "m";
 
@@ -209,6 +211,7 @@ Item {
 
                                 return "Empty In: " + m + "m";
                             }
+
                             color: Color.Matugen.colors.on_background
                             opacity: 0.7
                             font.pixelSize: 11
@@ -217,10 +220,12 @@ Item {
                         Text {
                             Layout.fillWidth: true
                             visible: BatteryProcess.isCharging && BatteryProcess.timeToFull > 0
+
                             text: {
                                 let totalMinutes = Math.round(BatteryProcess.timeToFull / 60);
                                 let h = Math.floor(totalMinutes / 60);
                                 let m = totalMinutes % 60;
+
                                 if (h > 0 && m > 0)
                                     return "Full in: " + h + "h " + m + "m";
 
@@ -229,19 +234,14 @@ Item {
 
                                 return "Full in: " + m + "m";
                             }
+
                             color: Color.Matugen.colors.on_background
                             opacity: 0.7
                             font.pixelSize: 11
                         }
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }
