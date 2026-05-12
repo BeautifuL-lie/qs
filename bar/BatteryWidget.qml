@@ -19,8 +19,8 @@ Item {
         Rectangle {
             id: batteryBody
 
-            width: 30
-            height: 15
+            width: 29
+            height: 13
             color: Color.Matugen.colors.outline
             radius: 3
 
@@ -56,9 +56,10 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
 
                 width: 2
-                height: 9
+                height: 8
                 color: Color.Matugen.colors.outline
-                radius: 1
+                topRightRadius: 5
+                bottomRightRadius: 5
             }
 
             Row {
