@@ -10,7 +10,7 @@ PanelWindow {
     id: bar
 
     implicitHeight: 32
-    color: Qt.alpha(Color.Matugen.colors.background, 0.9)
+    color: Qt.alpha(Color.Matugen.colors.background, 1)
     WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.namespace: "bar"
     WlrLayershell.exclusiveZone: 32
