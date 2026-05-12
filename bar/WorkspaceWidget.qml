@@ -57,10 +57,10 @@ Row {
 
             color: updateColors()
             border.color: updateBorderColor()
-            border.width: 2
-            height: 20
+            border.width: 1.8
+            height: 18
             radius: 8
-            width: model.isFocused ? 52 : 24
+            width: model.isFocused ? 48 : 24
 
             Text {
                 id: textItem
@@ -69,7 +69,7 @@ Row {
                 text: model.index
                 color: rect.updateTextColor()
                 font.weight: 500
-                font.pixelSize: 12
+                font.pixelSize: 11
                 font.family: "JetBrains Mono"
             }
 
