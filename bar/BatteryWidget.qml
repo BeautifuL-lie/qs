@@ -30,7 +30,7 @@ Item {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
 
-                width: Math.max(0, (parent.width - 2.4) * (percentage / 100))
+                width: Math.max(0, (parent.width) * (percentage / 100))
 
                 color: {
                     if (BatteryProcess.isCharging)
