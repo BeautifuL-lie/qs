@@ -24,5 +24,14 @@ Singleton {
     property real energyRate: UPower.displayDevice.changeRate
     property real timeToEmpty: UPower.displayDevice.timeToEmpty
     property real timeToFull: UPower.displayDevice.timeToFull
+    
+    property bool isPopupVisible: false
 
+    function togglePopup() {
+        isPopupVisible = !isPopupVisible;
+    }
+
+    function closePopup() {
+        isPopupVisible = false;
+    }
 }

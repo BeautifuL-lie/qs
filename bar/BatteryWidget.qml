@@ -9,7 +9,6 @@ Item {
     id: battery
 
     property string percentage: Math.round(BatteryProcess.percentage * 100)
-    property bool showPopup: false
 
     implicitHeight: batteryBody.height
     implicitWidth: batteryBody.width + batteryTip.width
@@ -90,7 +89,7 @@ Item {
                 anchors.fill: parent
 
                 onClicked: {
-                    battery.showPopup = !battery.showPopup;
+                    BatteryProcess.togglePopup();
                     SettingsProcess.closeSwaync.running = true;
                 }
             }
@@ -98,7 +97,7 @@ Item {
     }
 
     LazyLoader {
-        active: battery.showPopup
+        active: BatteryProcess.isPopupVisible
 
         PanelWindow {
             anchors.top: true

@@ -13,9 +13,10 @@ RowLayout {
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         cursorShape: Qt.PointingHandCursor
         onClicked: (mouse) => {
-            if (mouse.button === Qt.LeftButton)
+            if (mouse.button === Qt.LeftButton) {
                 SettingsProcess.toggleSwaync.running = true;
-
+                BatteryProcess.closePopup(); 
+            }
         }
 
         Text {
